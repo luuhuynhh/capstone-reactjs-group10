@@ -13,36 +13,36 @@ import HomeTemplate from './templates/homeTemplate/HomeTemplate';
 import UserTemplate from './templates/userTemplate/UserTemplate';
 // import Login from './pages/login'
 //Cấu hình redux
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import { store } from './redux/configStore';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-  <BrowserRouter>
-    <Routes>
-      <Route path="" element={<HomeTemplate />}>
-        <Route index element={<Home />}></Route>
-        <Route path='home' element={<Home />}></Route>
-        <Route path='detail'>
-          <Route path=':id'  element={<Detail />}></Route>
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<HomeTemplate />}>
+          <Route index element={<Home />}></Route>
+          <Route path='home' element={<Home />}></Route>
+          <Route path='detail'>
+            <Route path=':id' element={<Detail />}></Route>
+          </Route>
+          <Route path='profile' element={<Profile />}></Route>
+          <Route path='login' element={<Login />}></Route>
+          <Route path='register' element={<Register />}></Route>
+          <Route path='carts' element={<Carts />}></Route>
+          <Route path='search' element={<Search />}></Route>
+          <Route path='*' element={<Navigate to="" />}></Route>
         </Route>
-        <Route path='profile' element={<Profile />}></Route>
-        <Route path='login' element={<Login />}></Route>
-        <Route path='register' element={<Register />}></Route>
-        <Route path='carts' element={<Carts />}></Route>
-        <Route path='search' element={<Search />}></Route>
-        <Route path='*' element={<Navigate to="" />}></Route>
-      </Route>
 
-      <Route path='users' element={<UserTemplate />}>
+        <Route path='users' element={<UserTemplate />}>
           <Route index element={<Login />}></Route>
           <Route path='register' element={<Register />}></Route>
           {/* Gõ /users/không có link => về lại users */}
           <Route path='*' element={<Navigate to="/users" />}></Route>
 
-      </Route>
+        </Route>
 
-    </Routes>
-  </BrowserRouter>
+      </Routes>
+    </BrowserRouter>
   </Provider>
 );

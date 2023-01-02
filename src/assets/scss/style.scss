@@ -1,3 +1,14 @@
-// p{
-//     color:red;
-// }
+html,
+body {
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    transition: all .5s;
+
+    :hover {
+        text-decoration: none;
+        color: inherit !important;
+    }
+}
