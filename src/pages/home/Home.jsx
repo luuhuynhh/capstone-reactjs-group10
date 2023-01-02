@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Carousel } from 'antd';
 //import redux
 import { useSelector, useDispatch } from 'react-redux'
@@ -13,6 +13,7 @@ const contentStyle = {
     lineHeight: '160px',
     textAlign: 'center',
     background: '#364d79',
+    cursor: 'pointer'
 };
 const Home = () => {
     //Dùng user slector lấy state từ redux về
@@ -22,6 +23,8 @@ const Home = () => {
     const onChange = (currentSlide) => {
         console.log(currentSlide);
     };
+
+    const ref = useRef();
 
     const getAllProduct = async () => {
         /*
@@ -46,22 +49,35 @@ const Home = () => {
 
     return (
         <div className='position-relative'>
-            <button className='position-absolute' style={{ zIndex: "right" }} onClick={() => {
-                Carousel.next();
-            }}>{">"}</button>
-            <Carousel afterChange={onChange} autoplay={true} effect={"scroll"}>
+            <button className='position-absolute' style={{ zIndex: "100", top: '60vh', left: 0, border: 'none', background: 'transparent' }} onClick={() => {
+                ref.current.prev();
+            }}>
+                <img src='./img/pre.png' alt='pre' />
+            </button>
+            <button className='position-absolute' style={{ zIndex: "100", top: '60vh', right: 0, border: 'none', background: 'transparent' }} onClick={() => {
+                ref.current.next();
+            }}>
+                <img src='./img/next.png' alt='next' />
+            </button>
+            <Carousel afterChange={onChange}
+                // autoplay={true} 
+                effect={"scroll"}
+                pauseOnHover={true}
+                pausOnDotHover={true}
+                ref={ref}
+                style={{ paddingTop: '10vh' }}
+            >
                 {arrProduct.slice(0, 4).map((item, index) => {
                     return <div key={index}>
                         <div style={contentStyle} className="d-flex">
                             <div className='w-50'>
                                 <img className='w-100 h-100' style={{ objectFit: 'cover' }} src={item.image} alt="..." />
                             </div>
-                            <div className='w-50'>
-                                <h3>{item.name}</h3>
-                                <p>{item.shortDescription}</p>
+                            <div className='w-50 ms-5' style={{ marginTop: '200px', textAlign: 'left' }}>
+                                <h3 style={{ lineHeight: '1.2' }}>{item.name}</h3>
+                                <p style={{ lineHeight: '1' }}>{item.shortDescription}</p>
+                                <button className="btn btn-warning text-white">Buy now</button>
                             </div>
-
-
                         </div>
                     </div>
                 })}
