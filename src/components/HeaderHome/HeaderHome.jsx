@@ -52,7 +52,7 @@ const HeaderHome = () => {
                     </ul>
                 </div>
             </nav>
-            <div>
+            <div style={{ boxShadow: '0px 3px 10px #888888' }}>
                 <ul className="d-flex bg-white">
                     <li className="nav-item me-1">
                         <NavLink to="/home" aria-current="page"
