@@ -65,7 +65,6 @@ const Home = () => {
                 pauseOnHover={true}
                 pausOnDotHover={true}
                 ref={ref}
-                style={{ paddingTop: '10vh' }}
             >
                 {arrProduct.slice(0, 4).map((item, index) => {
                     return <div key={index}>

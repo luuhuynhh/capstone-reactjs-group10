@@ -52,8 +52,6 @@ export const getProductByIdApi = (id) => {
     //Sau khi có được dữ liệu từ api => dispatch lần 2 lên reducer
     const action = getProductDetailAction(result.data.content);
     dispatch(action);
-
-
   }
 }
 
