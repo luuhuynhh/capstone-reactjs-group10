@@ -1,0 +1,17 @@
+.btnSubmit {
+    padding: .5rem 1.3rem;
+    border-radius: 20px;
+    background-color: #6200ee;
+    color: white;
+    transition: all .5s;
+}
+
+.btnSubmit:hover {
+    color: white;
+    background-color: rgb(98, 0, 238, .8);
+}
+
+.error {
+    color: red;
+    font-size: .85rem;
+}

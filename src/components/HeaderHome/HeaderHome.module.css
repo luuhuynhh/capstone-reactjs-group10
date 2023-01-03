@@ -1,0 +1,27 @@
+header {
+    z-index: 1030;
+    width: 100%;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+.unactive {
+    text-decoration: none;
+}
+
+.navLinkCart {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, .55);
+    padding: .25rem;
+}
+
+.navLinkCart:hover {
+    color: rgba(255, 255, 255, .75);
+}
+
+li {
+    list-style-type: none;
+}
