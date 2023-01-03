@@ -1,0 +1,29 @@
+.price,
+.price:hover {
+    width: '50%';
+    text-align: center;
+    padding-top: .5rem;
+    margin-bottom: 0;
+    background-color: rgba(222, 221, 220, 1);
+    font-weight: 600;
+    color: black !important;
+}
+
+.buynow,
+.buynow:hover {
+    width: 50%;
+    border: none;
+    background-color: rgba(157, 225, 103, 1);
+    font-weight: 600;
+    color: black !important;
+}
+
+.description,
+.description:hover {
+    color: rgba(203, 201, 201, 1) !important;
+}
+
+.name,
+.name:hover {
+    color: black !important;
+}
