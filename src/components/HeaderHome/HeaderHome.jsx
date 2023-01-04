@@ -1,10 +1,24 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import styles from './HeaderHome.module.css'
-
+import {calculateTotalsAction} from'../../redux/reducers/cartReducer'
 const HeaderHome = () => {
     const { userLogin } = useSelector(state => state.userReducer);
+
+    const { cartProducts, cartAmount } = useSelector(
+        state => state.cartReducer
+    );
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (userLogin) {
+            dispatch(calculateTotalsAction());
+        }
+    }, [cartProducts]);
+
+
+
     const renderLogin = () => {
         if (userLogin) {
             return <li className="nav-item">
@@ -44,6 +58,7 @@ const HeaderHome = () => {
                         <li className="nav-item me-1">
                             <NavLink className={styles.navLinkCart} to="/carts" aria-current="page">
                                 <img src="./img/cart.png" alt='cart' />
+                                ({cartAmount})
                                 <span>(1)</span>
                             </NavLink>
                         </li>

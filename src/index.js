@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import './assets/scss/style.scss';
 import Carts from './pages/carts/Carts';
 import Detail from './pages/detail/Detail';
@@ -15,10 +15,13 @@ import UserTemplate from './templates/userTemplate/UserTemplate';
 //Cấu hình redux
 import { Provider } from 'react-redux';
 import { store } from './redux/configStore';
+import { createBrowserHistory } from 'history';
+//cấu hình history
+export const history = createBrowserHistory();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <Routes>
         <Route path="" element={<HomeTemplate />}>
           <Route index element={<Home />}></Route>
@@ -43,6 +46,6 @@ root.render(
         </Route>
 
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   </Provider>
 );
