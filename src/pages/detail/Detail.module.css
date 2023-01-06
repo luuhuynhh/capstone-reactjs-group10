@@ -1,0 +1,10 @@
+.btn {
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+}
+
+.btn:disabled {
+    opacity: .5;
+}
