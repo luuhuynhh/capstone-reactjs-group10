@@ -58,8 +58,8 @@ const HeaderHome = () => {
                         <li className="nav-item me-1">
                             <NavLink className={styles.navLinkCart} to="/carts" aria-current="page">
                                 <img src="./img/cart.png" alt='cart' />
-                                ({cartAmount})
-                                <span>(1)</span>
+                                
+                                <span>({cartAmount})</span>
                             </NavLink>
                         </li>
                         {renderLogin()}
