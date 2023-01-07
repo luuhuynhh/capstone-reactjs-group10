@@ -1,0 +1,15 @@
+BC35E Chiều T7 && CN
+Bài tập Capstone ReactJS
+
+Nhóm 10:
+	- Hoàng Anh Vũ
+	- Huỳnh Nguyễn Thị Lựu
+	
+Nội dung demo:
+1) Trang register
+2) Trang login
+3) Trang index
+4) Trang search
+5) Trang detail
+6) Trang carts
+7) Trang profile

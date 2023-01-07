@@ -8,7 +8,7 @@ const initialState = {
   ],
   productDetail: null,
 
-  productAmount:1,
+  productAmount: 1,
 
   productSearch: []
 
@@ -24,24 +24,24 @@ const productReducer = createSlice({
     getProductDetailAction: (state, action) => {
       state.productDetail = action.payload;
     },
-
-    changeProductAmountAction:(state,{payload})=>{
+    getProductSearchAction: (state, action) => {
+      state.productSearch = action.payload;
+    },
+    changeProductAmountAction: (state, { payload }) => {
       if (state.productAmount === 1 && payload == -1) {
         state.productAmount += 0;
         return;
       }
       state.productAmount += payload;
     },
-    resetProductAmountAction:(state)=>({...state,productAmount:1})
-  }, getProductSearchAction: (state, action) => {
-    state.productSearch = action.payload;
-  }
+    resetProductAmountAction: (state) => ({ ...state, productAmount: 1 })
+  },
 });
 
 
-  
 
-export const { getProductAction, getProductDetailAction,changeProductAmountAction ,resetProductAmountAction,getProductSearchAction } = productReducer.actions
+
+export const { getProductAction, getProductDetailAction, changeProductAmountAction, resetProductAmountAction, getProductSearchAction } = productReducer.actions
 
 
 export default productReducer.reducer
