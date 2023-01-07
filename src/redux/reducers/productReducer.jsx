@@ -7,7 +7,11 @@ const initialState = {
     // { id: 1, name: 'nike 1', price: 1000, image: 'https://picsum.photos/id/1/200/200' }
   ],
   productDetail: null,
+
+  productAmount:1,
+
   productSearch: []
+
 }
 
 const productReducer = createSlice({
@@ -20,13 +24,25 @@ const productReducer = createSlice({
     getProductDetailAction: (state, action) => {
       state.productDetail = action.payload;
     },
-    getProductSearchAction: (state, action) => {
-      state.productSearch = action.payload;
-    }
+
+    changeProductAmountAction:(state,{payload})=>{
+      if (state.productAmount === 1 && payload == -1) {
+        state.productAmount += 0;
+        return;
+      }
+      state.productAmount += payload;
+    },
+    resetProductAmountAction:(state)=>({...state,productAmount:1})
+  }, getProductSearchAction: (state, action) => {
+    state.productSearch = action.payload;
   }
 });
 
-export const { getProductAction, getProductDetailAction, getProductSearchAction } = productReducer.actions
+
+  
+
+export const { getProductAction, getProductDetailAction,changeProductAmountAction ,resetProductAmountAction,getProductSearchAction } = productReducer.actions
+
 
 export default productReducer.reducer
 

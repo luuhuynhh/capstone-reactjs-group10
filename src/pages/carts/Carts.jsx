@@ -10,7 +10,7 @@ import {
 
 const Cart = () => {
   const { userLogin } = useSelector((state) => state.userReducer);
-  const {cartProducts, cartAmount, cartTotalPrice} = useSelector((state)=>state.cartReducer)
+  const {cartProducts, cartAmount, cartTotalPrice} = useSelector(state=>state.cartReducer)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
