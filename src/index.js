@@ -35,7 +35,7 @@ root.render(
           <Route path='register' element={<Register />}></Route>
           <Route path='carts' element={<Carts />}></Route>
           <Route path='search' element={<Search />}></Route>
-          <Route path='*' element={<Navigate to="" />}></Route>
+          <Route path='*' element={<p className='container mt-5'>We are developing this page</p>}></Route>
         </Route>
 
         <Route path='users' element={<UserTemplate />}>
