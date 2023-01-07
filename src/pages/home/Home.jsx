@@ -61,7 +61,7 @@ const Home = () => {
                 <img src='./img/next.png' alt='next' />
             </button>
             <Carousel afterChange={onChange}
-                // autoplay={true} 
+                autoplay={true}
                 effect={"scroll"}
                 pauseOnHover={true}
                 pausOnDotHover={true}
