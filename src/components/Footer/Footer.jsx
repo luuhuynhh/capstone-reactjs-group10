@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styles from './Footer.module.css'
 
 function Footer() {
@@ -8,7 +9,9 @@ function Footer() {
                 <div className={styles.menu}>
                     <h5>GET HELP</h5>
                     <ul style={{ padding: '.2rem' }}>
-                        <li>Home</li>
+                        <li>
+                            <NavLink style={{ color: 'black' }} to={'/home'}>Home</NavLink>
+                        </li>
                         <li>Nike</li>
                         <li>Adidas</li>
                         <li>Contact</li>
@@ -26,8 +29,12 @@ function Footer() {
                 <div className={styles.menu}>
                     <h5>REGISTER</h5>
                     <ul style={{ padding: '.2rem' }}>
-                        <li>Register</li>
-                        <li>Login</li>
+                        <li>
+                            <NavLink style={{ color: 'black' }} to={'/register'}>Register</NavLink>
+                        </li>
+                        <li>
+                            <NavLink style={{ color: 'black' }} to={'/login'}>Login</NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>
