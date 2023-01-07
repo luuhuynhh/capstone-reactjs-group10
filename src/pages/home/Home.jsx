@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import ShoesCard from '../../components/ShoesCard/ShoesCard';
 import axios from 'axios';
 import { getAllProductApi, getProductAction } from '../../redux/reducers/productReducer';
+import { NavLink } from 'react-router-dom';
 
 const contentStyle = {
     margin: 0,
@@ -75,7 +76,12 @@ const Home = () => {
                             <div className='w-50 ms-5' style={{ marginTop: '200px', textAlign: 'left' }}>
                                 <h3 style={{ lineHeight: '1.2' }}>{item.name}</h3>
                                 <p style={{ lineHeight: '1' }}>{item.shortDescription}</p>
-                                <button className="btn btn-warning text-white">Buy now</button>
+                                <NavLink
+                                    className="btn btn-warning text-white"
+                                    to={`/detail/${item?.id}`}
+                                >
+                                    Buy now
+                                </NavLink>
                             </div>
                         </div>
                     </div>
