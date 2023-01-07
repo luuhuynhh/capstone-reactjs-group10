@@ -8,6 +8,8 @@ import {
   setStoreJson,
   TOKEN,
   USER_LOGIN,
+  eraseStore,
+  eraseCookie,
 } from '../../utils/config';
 
 const initialState = {
@@ -26,13 +28,19 @@ const userReducer = createSlice({
     loginAction: (state, action) => {
       state.userLogin = action.payload;
     },
+    logoutAction: (state) => {
+      state.userLogin = null;
+      //
+      eraseStore(USER_LOGIN);
+      eraseCookie(TOKEN);
+    },
     getProfileAction: (state, action) => {
       state.profile = action.payload;
     },
   },
 });
 
-export const { registerAction, loginAction, getProfileAction } =
+export const { registerAction, loginAction, getProfileAction, logoutAction } =
   userReducer.actions;
 
 export default userReducer.reducer;
