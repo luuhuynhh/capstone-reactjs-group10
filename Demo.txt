@@ -13,3 +13,5 @@ Nội dung demo:
 5) Trang detail
 6) Trang carts
 7) Trang profile
+
+Cảm ơn mentor đã xem bài của nhóm ạ
