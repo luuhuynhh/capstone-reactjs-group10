@@ -6,7 +6,8 @@ const initialState = {
   arrProduct: [
     { id: 1, name: 'nike 1', price: 1000, image: 'https://picsum.photos/id/1/200/200' }
   ],
-  productDetail: null
+  productDetail: null,
+  productAmount:1
 }
 
 const productReducer = createSlice({
@@ -18,11 +19,19 @@ const productReducer = createSlice({
     },
     getProductDetailAction: (state, action) => {
       state.productDetail = action.payload;
-    }
+    },
+    changeProductAmountAction:(state,{payload})=>{
+      if (state.productAmount === 1 && payload == -1) {
+        state.productAmount += 0;
+        return;
+      }
+      state.productAmount += payload;
+    },
+    resetProductAmountAction:(state)=>({...state,productAmount:1})
   }
 });
 
-export const { getProductAction, getProductDetailAction } = productReducer.actions
+export const { getProductAction, getProductDetailAction, changeProductAmountAction, resetProductAmountAction } = productReducer.actions
 
 export default productReducer.reducer
 

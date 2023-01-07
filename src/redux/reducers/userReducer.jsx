@@ -95,3 +95,4 @@ export const updateProfileApi = (updatedData) => {
     }
   };
 };
+

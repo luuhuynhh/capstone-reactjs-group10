@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import ShoesCard from '../../components/ShoesCard/ShoesCard'
 import { getProductByIdApi } from '../../redux/reducers/productReducer';
+import { changeProductAmountAction, resetProductAmountAction } from '../../redux/reducers/productReducer';
+import { addToCartAction } from '../../redux/reducers/cartReducer'
 import styles from './Detail.module.css';
 
 const Detail = () => {
-  const { productDetail } = useSelector(state => state.productReducer);
+  const { userLogin } = useSelector(state => state.userReducer)
+  const { productDetail, productAmount } = useSelector(state => state.productReducer);
   const [count, setCount] = useState(1);
   //dispatch: Dùng để đưa dữ liệu lên redux
   const dispatch = useDispatch();
@@ -31,6 +34,21 @@ const Detail = () => {
   const handleDec = () => {
     setCount(pre => pre - 1);
   }
+  const changeProductAmount = (num)=>{
+    dispatch(changeProductAmountAction(num))
+  }
+
+  const addToCart = () => {
+    if (userLogin) {
+      dispatch(
+        addToCartAction({
+          ...productDetail,
+          amount: productAmount,
+        })
+      )
+    }
+  }
+
 
   return (
     <div className='container'>
@@ -73,6 +91,7 @@ const Detail = () => {
               padding: '.5rem 1rem',
               fontSize: '1.2rem'
             }}
+            onClick={addToCart}
           >
             Add to cart <i className='fa fa-cart-plus'></i>
           </button>
