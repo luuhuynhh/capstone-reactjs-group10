@@ -1,0 +1,33 @@
+.inputName {
+    border: none;
+    padding: .5rem;
+    background-color: rgba(33, 33, 33, 0.08);
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.btnSearch {
+    padding: .5rem 1.5rem;
+    background-color: #6200EE;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    color: white;
+    border: none;
+    margin-left: 2rem;
+}
+
+.resultTitle {
+    margin-top: 2rem;
+    padding: .5rem 1rem;
+    background: linear-gradient(180deg, #F21299 0%, #1B02B5 100%);
+    color: white;
+}
+
+.btnSort {
+    width: 20vw;
+    border: none;
+    background-color: rgba(33, 33, 33, 0.08);
+    text-align: left;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    color: rgba(0, 0, 0, 0.87);
+}

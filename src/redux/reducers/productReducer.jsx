@@ -4,10 +4,14 @@ import axios from 'axios';
 
 const initialState = {
   arrProduct: [
-    { id: 1, name: 'nike 1', price: 1000, image: 'https://picsum.photos/id/1/200/200' }
+    // { id: 1, name: 'nike 1', price: 1000, image: 'https://picsum.photos/id/1/200/200' }
   ],
   productDetail: null,
-  productAmount:1
+
+  productAmount:1,
+
+  productSearch: []
+
 }
 
 const productReducer = createSlice({
@@ -20,6 +24,7 @@ const productReducer = createSlice({
     getProductDetailAction: (state, action) => {
       state.productDetail = action.payload;
     },
+
     changeProductAmountAction:(state,{payload})=>{
       if (state.productAmount === 1 && payload == -1) {
         state.productAmount += 0;
@@ -28,10 +33,16 @@ const productReducer = createSlice({
       state.productAmount += payload;
     },
     resetProductAmountAction:(state)=>({...state,productAmount:1})
+  }, getProductSearchAction: (state, action) => {
+    state.productSearch = action.payload;
   }
 });
 
-export const { getProductAction, getProductDetailAction, changeProductAmountAction, resetProductAmountAction } = productReducer.actions
+
+  
+
+export const { getProductAction, getProductDetailAction,changeProductAmountAction ,resetProductAmountAction,getProductSearchAction } = productReducer.actions
+
 
 export default productReducer.reducer
 
@@ -60,6 +71,18 @@ export const getProductByIdApi = (id) => {
     });
     //Sau khi có được dữ liệu từ api => dispatch lần 2 lên reducer
     const action = getProductDetailAction(result.data.content);
+    dispatch(action);
+  }
+}
+
+export const getProductSearchApi = (keySearch) => {
+  return async (dispatch) => {
+    const result = await axios({
+      url: `https://shop.cyberlearn.vn/api/Product?keyword=${keySearch}`,
+      method: 'GET'
+    })
+
+    const action = getProductSearchAction(result.data.content);
     dispatch(action);
   }
 }
