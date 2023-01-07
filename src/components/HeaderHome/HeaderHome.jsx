@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import styles from './HeaderHome.module.css'
 import { calculateTotalsAction } from '../../redux/reducers/cartReducer'
+import { logoutAction } from '../../redux/reducers/userReducer'
 const HeaderHome = () => {
     const { userLogin } = useSelector(state => state.userReducer);
 
@@ -21,9 +22,17 @@ const HeaderHome = () => {
 
     const renderLogin = () => {
         if (userLogin) {
-            return <li className="nav-item">
+            return <li className="nav-item d-flex align-items-center">
                 <NavLink className={'nav-link'} to="/profile">
                     Hello! {userLogin.email}
+                </NavLink>
+                <NavLink
+                    onClick={() => {
+                        dispatch(logoutAction())
+                    }
+                    }
+                >
+                    Đăng xuất
                 </NavLink>
             </li>
         }
