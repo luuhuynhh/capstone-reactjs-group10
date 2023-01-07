@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik'
 import styles from './Register.module.css'
@@ -10,8 +10,8 @@ import { registerApi } from '../../redux/reducers/userReducer'
 const Register = () => {
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
-  const newUser = useSelector((state) => state.userReducer);
-  const dispatch = useDispatch();
+  // const newUser = useSelector((state) => state.userReducer);
+  // const dispatch = useDispatch();
   const SignupSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, 'Name có từ 3 đến 30 kí tự')
@@ -58,9 +58,9 @@ const Register = () => {
         console.log(err);
       }
     },
-    onSubmit: (values) => {
-      dispatch(registerApi(values));
-    },
+    // onSubmit: (values) => {
+    //   dispatch(registerApi(values));
+    // },
   });
   return (
     <div className='container' style={{ paddingTop: '7vh' }}>
