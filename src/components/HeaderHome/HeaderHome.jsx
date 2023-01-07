@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import styles from './HeaderHome.module.css'
-import {calculateTotalsAction} from'../../redux/reducers/cartReducer'
+import { calculateTotalsAction } from '../../redux/reducers/cartReducer'
 const HeaderHome = () => {
     const { userLogin } = useSelector(state => state.userReducer);
 
@@ -23,7 +23,7 @@ const HeaderHome = () => {
         if (userLogin) {
             return <li className="nav-item">
                 <NavLink className={'nav-link'} to="/profile">
-                    Hello ! {userLogin.email}
+                    Hello! {userLogin.email}
                 </NavLink>
             </li>
         }
@@ -58,7 +58,7 @@ const HeaderHome = () => {
                         <li className="nav-item me-1">
                             <NavLink className={styles.navLinkCart} to="/carts" aria-current="page">
                                 <img src="./img/cart.png" alt='cart' />
-                                
+
                                 <span>({cartAmount})</span>
                             </NavLink>
                         </li>
